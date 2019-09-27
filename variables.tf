@@ -24,13 +24,14 @@ variable "task_count" {
   default     = 1
 }
 
-variable "subnets" {
-  description = "List of subnets for Fargate task ENI"
+variable "subnet_ids" {
+  description = "List of subnet ids for Fargate task ENI"
   type        = "list"
 }
 
-variable "security_groups" {
-  description = "List of security groups for Fargate task ENI"
+variable "security_group_ids" {
+  description = "List of security group ids for Fargate task ENI"
+  type        = "list"
 }
 
 variable "task_role_arn" {
