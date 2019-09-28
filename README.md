@@ -29,7 +29,7 @@ module "iam_ecs_tasks" {
   source = "baikonur-oss/iam-nofile/aws"
   version = "1.0.2"
   type = "ecs-tasks"
-  name = "${var.env}${var.env_num}-${var.role}"
+  name = "dev-batch"
 
   policy_json = <<EOF
 {
