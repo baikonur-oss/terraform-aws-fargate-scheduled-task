@@ -21,8 +21,8 @@ module "fargate-scheduled-task" {
   task_role_arn       = "${module.iam_ecs_tasks.arn}"
   task_count          = "1"
 
-  subnets         = "subnet-***1,subnet-***2"
-  security_groups = "sg-***1,sg-***2"
+  subnet_ids         = ["subnet-***1", "subnet-***2"]
+  security_group_ids = ["sg-***1", "sg-***2"]
 }
 
 module "iam_ecs_tasks" {
