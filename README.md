@@ -9,7 +9,7 @@ Terraform module for scheduling Fargate tasks with CloudWatch Event Rules.
 ```HCL
 module "fargate-scheduled-task" {
   source  = "baikonur-oss/fargate-scheduled-task/aws"
-  version = "v2.0.0"
+  version = "v2.0.1"
 
   name                = "dev-batch-foo"
   schedule_expression = "cron(40 1 * * ? *)"
@@ -17,8 +17,8 @@ module "fargate-scheduled-task" {
 
   target_cluster_arn = "dev"
 
-  task_definition_arn = "${aws_ecs_task_definition.ecs_task_definition.arn}"
-  task_role_arn       = "${module.iam_ecs_tasks.arn}"
+  task_definition_arn = aws_ecs_task_definition.ecs_task_definition.arn
+  task_role_arn       = module.iam_ecs_tasks.arn
   task_count          = "1"
 
   subnet_ids         = ["subnet-***1", "subnet-***2"]
@@ -26,10 +26,10 @@ module "fargate-scheduled-task" {
 }
 
 module "iam_ecs_tasks" {
-  source = "baikonur-oss/iam-nofile/aws"
+  source  = "baikonur-oss/iam-nofile/aws"
   version = "1.0.2"
-  type = "ecs-tasks"
-  name = "dev-batch"
+  type    = "ecs-tasks"
+  name    = "dev-batch"
 
   policy_json = <<EOF
 {
@@ -82,8 +82,8 @@ For more information on module version pinning, see [Selecting a Revision](https
 | is\_enabled | Rule enabled flag | string | `"true"` | no |
 | name | CloudWatch Event Rule name | string | n/a | yes |
 | schedule\_expression | CloudWatch schedule expression (see: https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/events/ScheduledEvents.html ) | string | n/a | yes |
-| security\_group\_ids | List of security group ids for Fargate task ENI | list | n/a | yes |
-| subnet\_ids | List of subnet ids for Fargate task ENI | list | n/a | yes |
+| security\_group\_ids | List of security group ids for Fargate task ENI | list(string) | n/a | yes |
+| subnet\_ids | List of subnet ids for Fargate task ENI | list(string) | n/a | yes |
 | target\_cluster\_arn | Target ECS cluster ARN | string | n/a | yes |
 | task\_count | Number of tasks to execute at once | string | `"1"` | no |
 | task\_definition\_arn | ARN of Task Definition to run | string | n/a | yes |

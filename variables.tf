@@ -26,12 +26,12 @@ variable "task_count" {
 
 variable "subnet_ids" {
   description = "List of subnet ids for Fargate task ENI"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "security_group_ids" {
   description = "List of security group ids for Fargate task ENI"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "task_role_arn" {
@@ -46,3 +46,4 @@ variable "iam_ecs_run_task_resource" {
   description = "Field for overriding ecs:RunTask resource identifier in Events IAM role (defaults to task_definition_arn)"
   default     = ""
 }
+
