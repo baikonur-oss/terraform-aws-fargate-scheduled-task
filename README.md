@@ -9,7 +9,7 @@ Terraform module for scheduling Fargate tasks with CloudWatch Event Rules.
 ```HCL
 module "fargate-scheduled-task" {
   source  = "baikonur-oss/fargate-scheduled-task/aws"
-  version = "v2.0.1"
+  version = "v2.0.2"
 
   name                = "dev-batch-foo"
   schedule_expression = "cron(40 1 * * ? *)"
@@ -27,7 +27,7 @@ module "fargate-scheduled-task" {
 
 module "iam_ecs_tasks" {
   source  = "baikonur-oss/iam-nofile/aws"
-  version = "1.0.2"
+  version = "2.0.0"
   type    = "ecs-tasks"
   name    = "dev-batch"
 
