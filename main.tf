@@ -30,9 +30,10 @@ resource "aws_cloudwatch_event_target" "fargate_scheduled_task" {
 
 module "iam" {
   source  = "baikonur-oss/iam-nofile/aws"
-  version = "1.0.2"
-  type    = "events"
-  name    = var.name
+  version = "2.0.0"
+
+  type = "events"
+  name = var.name
 
   policy_json = <<EOF
 {
