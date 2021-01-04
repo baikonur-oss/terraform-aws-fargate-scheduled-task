@@ -19,6 +19,7 @@ resource "aws_cloudwatch_event_target" "fargate_scheduled_task" {
     task_definition_arn = var.task_definition_arn
     task_count          = var.task_count
     launch_type         = "FARGATE"
+    platform_version    = "1.4.0"
 
     network_configuration {
       subnets          = var.subnet_ids
