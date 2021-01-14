@@ -47,3 +47,7 @@ variable "iam_ecs_run_task_resource" {
   default     = ""
 }
 
+variable "platform_version" {
+  description = "Platform version"
+  default     = "1.4.0"
+}
