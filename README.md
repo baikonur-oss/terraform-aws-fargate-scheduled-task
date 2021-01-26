@@ -88,6 +88,7 @@ For more information on module version pinning, see [Selecting a Revision](https
 | task\_count | Number of tasks to execute at once | string | `"1"` | no |
 | task\_definition\_arn | ARN of Task Definition to run | string | n/a | yes |
 | task\_role\_arn | ARN of IAM Role for task (see: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-iam-roles.html ) | string | n/a | yes |
+| platform\_version | Platform version | string | `"1.4.0"` | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
