@@ -34,6 +34,11 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
+variable "assign_public_ip" {
+  description = "Assign public ip for Fargate task ENI"
+  default     = false
+}
+
 variable "task_role_arn" {
   description = "ARN of IAM Role for task (see: https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/task-iam-roles.html )"
 }

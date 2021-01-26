@@ -84,6 +84,7 @@ For more information on module version pinning, see [Selecting a Revision](https
 | schedule\_expression | CloudWatch schedule expression (see: https://docs.aws.amazon.com/ja_jp/AmazonCloudWatch/latest/events/ScheduledEvents.html ) | string | n/a | yes |
 | security\_group\_ids | List of security group ids for Fargate task ENI | list(string) | n/a | yes |
 | subnet\_ids | List of subnet ids for Fargate task ENI | list(string) | n/a | yes |
+| assign\_public\_ip | Assign public ip for Fargate task ENI | string | `"false"` | no |
 | target\_cluster\_arn | Target ECS cluster ARN | string | n/a | yes |
 | task\_count | Number of tasks to execute at once | string | `"1"` | no |
 | task\_definition\_arn | ARN of Task Definition to run | string | n/a | yes |
